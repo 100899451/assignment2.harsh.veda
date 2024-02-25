@@ -1,0 +1,147 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Harsh Panchal">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home - Harmony-Hub</title>
+
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Additional Styles for the Slideshow -->
+    <style>
+        #slideshow {
+            max-width: 100%;
+            overflow: hidden;
+            height: 400px; /* Set the desired height for your slideshow */
+            position: relative;
+            background-color: #f0f0f0;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #slideshow img {
+            width: auto;
+            height: 100%;
+            max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the images */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-people-group"></i> Harmony-Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html"><i class="fa-solid fa-project-diagram"></i> Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><i class="fa-solid fa-map-signs"></i> Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html"><i class="fa-solid fa-info"></i> Team</a>
+                    </li>
+
+                    <!-- Additional pages in a line -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html"><i class="fa-solid fa-newspaper"></i> News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="privacy-policy.html"><i class="fa-solid fa-shield"></i> Privacy Policy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="terms-of-service.html"><i class="fa-solid fa-file-alt"></i> Terms of Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="events.html"><i class="fa-solid fa-calendar"></i> Events</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="gallery.html"><i class="fa-solid fa-brands fa-envira"></i> Gallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Slideshow Section -->
+    <div id="slideshow" class="my-5">
+        <img src="content/ai_logo_red.svg" alt="Slide 1">
+        <img src="content/img.png" alt="Slide 2">
+
+    </div>
+
+    <!-- Home Page Content -->
+    <section id="home" class="my-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h2>Welcome to Harmony Hub</h2>
+                <p class="lead">A vibrant community center for all ages and backgrounds</p>
+                <p>Welcome to Harmony Hub, where technology meets community service. Explore our services, events, workshops, and community projects.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Scripting Section that runs after the content loads -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script src="scripts/events.js"></script>
+
+<!-- Script for the Slideshow -->
+<script>
+    $(document).ready(function () {
+        function slideShow() {
+            var $slideshow = $('#slideshow');
+            var $images = $slideshow.find('img');
+            var currentIndex = 0;
+
+            // Show the first image initially
+            $images.eq(currentIndex).show();
+
+            // Function to switch to the next image
+            function nextSlide() {
+                $images.eq(currentIndex).fadeOut();
+                currentIndex = (currentIndex + 1) % $images.length;
+                $images.eq(currentIndex).fadeIn();
+            }
+
+            // Set interval for the slideshow
+            setInterval(nextSlide, 3000);
+        }
+
+        // Call the slideshow function
+        slideShow();
+    });
+</script>
+</body>
+</html>
